@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10151f">
+  <title>Budget Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb-a"></span><span class="orb orb-b"></span>
+    <span class="orb orb-c"></span><span class="float-chip chip-a">✦ <b>Plan</b></span>
+    <span class="float-chip chip-b">↗ <b>Progress</b></span>
+    <span class="float-chip chip-c">◌ <b>On track</b></span>
+  </div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Budget home"><span class="brand-mark">✦</span><span>budget<span class="brand-light">space</span></span></a>
+      <div class="month-control"><span class="live-dot"></span> NOVEMBER 2026 <span class="chevron">⌄</span></div>
+      <button class="avatar" aria-label="Profile">M</button>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">YOUR MONEY, IN FOCUS</p>
+        <h1>Good evening<span class="period">.</span></h1>
+        <p class="hero-copy">A clear view of what’s funded, what’s coming up, and what’s next.</p>
+      </div>
+      <div class="hero-decoration" aria-hidden="true"><span>✦</span><i></i><b></b></div>
+    </section>
+
+    <nav class="tabs" aria-label="App sections">
+      <button class="tab active" data-tab="home">Overview</button>
+      <button class="tab" data-tab="funding">Funding</button>
+      <button class="tab" data-tab="spending">Spending</button>
+      <button class="tab" data-tab="bills">Bills</button>
+      <button class="tab" data-tab="accounts">Accounts</button>
+    </nav>
+
+    <section id="view" class="view" aria-live="polite"></section>
+    <footer><span>✦</span> A little more clarity, every month.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
