@@ -129,3 +129,28 @@ button:focus-visible,a:focus-visible{outline:2px solid #73caff;outline-offset:3p
 @media(prefers-reduced-motion:reduce){
   .orb,.float-chip,.hero-decoration i,.hero-decoration b{animation:none!important}
 }
+
+
+/* Settings drawer and fixed-position ambient elements */
+:root{--mint:#39baff}
+.ambient{position:fixed!important;inset:0;pointer-events:none;overflow:hidden}
+.float-chip{position:fixed!important;animation:chip-drift 16s ease-in-out infinite alternate}
+.chip-a{animation-delay:-3s}.chip-b{animation-delay:-8s}.chip-c{animation-delay:-5s}
+@keyframes chip-drift{
+  0%{transform:translate3d(0,0,0) rotate(-2deg)}
+  50%{transform:translate3d(12px,-17px,0) rotate(1deg)}
+  100%{transform:translate3d(-8px,10px,0) rotate(3deg)}
+}
+.settings-overlay{position:fixed;inset:0;z-index:1000;background:rgba(0,4,10,.72);backdrop-filter:blur(10px);display:flex;justify-content:flex-end}
+.settings-menu{width:min(420px,100%);height:100%;overflow:auto;padding:26px;background:linear-gradient(160deg,#121a27,#070a10);border-left:1px solid rgba(120,190,245,.24);box-shadow:-24px 0 70px #0008;animation:settings-in .22s ease-out}
+.settings-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.settings-head h2{margin:5px 0 0;font-size:25px}
+.settings-section{padding:18px 0;border-top:1px solid rgba(180,210,240,.13);display:flex;flex-direction:column;gap:10px}
+.settings-section h3{margin:0;font-size:14px;color:#f1f7ff}
+.settings-section .small{line-height:1.5;margin:0 0 4px}
+.theme-options{display:flex;gap:12px}
+.theme-swatch{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.22);background:var(--swatch);cursor:pointer}
+.theme-swatch:nth-child(1){--swatch:#39baff}.theme-swatch:nth-child(2){--swatch:#a78bfa}.theme-swatch:nth-child(3){--swatch:#5eead4}.theme-swatch:nth-child(4){--swatch:#fb7185}
+.theme-swatch.selected{outline:2px solid white;outline-offset:3px}
+@keyframes settings-in{from{transform:translateX(20px);opacity:.5}to{transform:translateX(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.float-chip{animation:none!important}.settings-menu{animation:none}}
