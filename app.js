@@ -13,14 +13,14 @@ const data=[
  {name:'Phone',target:110,funded:0,icon:'▣'},
  {name:'Subscriptions',target:null,funded:0,icon:'◌'},
  {name:'Salem',target:60,funded:0,icon:'✦'},
- {name:'Gas',target:75,funded:0,icon:'↗'},
- {name:'Groceries',target:250,funded:0,icon:'◇'}
+ {name:'Gas',target:150,funded:0,icon:'↗'},
+ {name:'Groceries',target:200,funded:0,icon:'◇'}
 ];
 const cards=[{name:'Stark Industries · Visa',holder:'Iron Man',used:0,limit:5000},{name:'Daily Bugle · Mastercard',holder:'Spider-Man',used:0,limit:5000}];
 if(Array.isArray(saved.funded))data.forEach((x,i)=>{if(Number.isFinite(saved.funded[i])&&saved.funded[i]>=0)x.funded=saved.funded[i]});
 if(Array.isArray(saved.used))cards.forEach((x,i)=>{if(Number.isFinite(saved.used[i])&&saved.used[i]>=0)x.used=Math.min(5000,saved.used[i])});
 function persist(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify({funded:data.map(x=>x.funded),used:cards.map(x=>x.used),pay:document.querySelector('#pay-input')?.value??saved.pay,tips:document.querySelector('#tips-input')?.value??saved.tips,purchases}))}catch(e){console.warn('Could not save budget data',e)}}
-const bills=[{name:'Rent',date:`${shortMonth} 1`,amount:750},{name:'Insurance',date:`${shortMonth} 19`,amount:309.23},{name:'Phone',date:'Monthly · date not set',amount:110},{name:'Subscriptions',date:'Monthly · target not set',amount:null},{name:'Salem',date:'Monthly · date not set',amount:60},{name:'Gas',date:'Monthly · date not set',amount:75},{name:'Groceries',date:'Monthly · date not set',amount:250}];
+const bills=[{name:'Rent',date:`${shortMonth} 1`,amount:750},{name:'Insurance',date:`${shortMonth} 19`,amount:309.23},{name:'Phone',date:'Nov 10',amount:110},{name:'Subscriptions',date:'Monthly · date not set',amount:45},{name:'Salem',date:'Monthly · date not set',amount:60},{name:'Gas',date:'Monthly · date not set',amount:150},{name:'Groceries',date:'Monthly · date not set',amount:200}];
 const money=n=>n.toLocaleString('en-CA',{style:'currency',currency:'CAD'});
 const targetTotal=1704.23;
 const fundedTotal=data.reduce((sum,item)=>sum+item.funded,0);
